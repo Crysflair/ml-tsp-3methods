@@ -1,116 +1,214 @@
-import numpy as np
 import random
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 class Population:
-    def __init__(self, size, gene_len):
-        # randomly init population
-        self.size = size
-        self.gene_len = gene_len
-        self.population = np.zeros((size, gene_len), dtype=np.uint16)
-        self.fitness = np.zeros(size, dtype=np.uint16)
-        self.population[:] = list(range(gene_len))
-        for i in range(size):
-            np.random.shuffle(self.population[i])
+    def __init__(self, popu_size, gene_len):
+        self._popu_size = popu_size
+        self._gene_len = gene_len
+        self._popu = np.empty((popu_size, gene_len), dtype=np.uint16)
+        self._fitness = np.empty(popu_size, dtype=np.float)
 
-    def __str__(self):
-        print('population:')
-        print(self.population)
+    # should be override
+    def init_randomly(self):
+        pass
 
-    def calculate_fitness(self, distance_matrix):
-        # calculate fitness of the current population. fitness = 1/distance
-        def calculate_distance(individual, dist):
-            length = 0
-            for city_i in range(self.gene_len - 1):
-                from_city, to_city = individual[city_i], individual[city_i+1]
-                length += dist[from_city, to_city]
-            city_i = self.gene_len - 1
-            length += dist[individual[city_i], 0]    # from last one to first one
-            return length
+    # should be override, update _fitness
+    def calculate_fitness(self):
+        pass
 
-        for i in range(self.size):
-            self.fitness[i] = 1 / calculate_distance(self.population[i], distance_matrix)
+    # should be override; called by select_crossover
+    def _crossover(self, p1: np.ndarray, p2: np.ndarray) -> np.ndarray:
+        pass
 
-    def get_fitness(self):
-        return self.fitness
+    # complete; but need fitness calculated, and _crossover overridden.
+    def select_tourna_crossover(self, tourna_size):
+        select_range = range(self._popu_size)
 
-    def get_elite(self, elite_size):
-        # return best elite_size individuals, according to fitness
-        assert elite_size < self.size // 2
-        elite_index = np.argpartition(self.get_fitness(), -elite_size)[-elite_size:]
-        return self.population[elite_index]
+        def _tournament(t_size):
+            sample_index = random.sample(select_range, t_size)
+            sample_fitness = self._fitness[sample_index]
+            sample_winner = np.argmax(sample_fitness)
+            return self._popu[sample_index[sample_winner]]
 
-    def get_best_gene(self, tour: list):
-        score = self.fitness[tour]
-        max_score_index = np.augmax(score)
-        max_popu_index = tour[max_score_index]
-        return self.population[max_popu_index]
+        tmp = np.empty_like(self._popu)
+        for i in range(self._popu_size):
+            p1 = _tournament(tourna_size)
+            p2 = _tournament(tourna_size)
+            child = self._crossover(p1, p2)
+            tmp[i] = child
 
-    def get_population_shape(self):
-        return self.size, self.gene_len
+        self._popu = tmp
 
-    def update_population(self, new_population_array):
-        assert (self.size, self.gene_len) == new_population_array
-        self.population = new_population_array
+    # should be override
+    def mutate(self, rate):
+        pass
+
+    def get_fittest(self):
+        i = np.argmax(self._fitness)
+        return self._popu[i], self._fitness[i]
 
 
+class TSPop(Population):
+    def __init__(self, popu_size, city_cnt, dis_mat):
+        super().__init__(popu_size, city_cnt)
+        self.dis_mat = dis_mat
+
+    def init_randomly(self):
+        self._popu[:] = list(range(self._gene_len))
+        for i in range(self._popu_size):
+            np.random.shuffle(self._popu[i])
+
+    def calculate_fitness(self):
+        def calculate_dis(gene):
+            dis = 0
+            for i in range(self._gene_len-1):
+                from_city, to_city = gene[i], gene[i+1]
+                dis += self.dis_mat[from_city, to_city]
+            from_city, to_city = gene[self._gene_len - 1],  gene[0]
+            dis += self.dis_mat[from_city, to_city]
+            assert dis > 0
+            return dis
+
+        for i in range(self._popu_size):
+            self._fitness[i] = 1 / calculate_dis(self._popu[i])
+
+    def _crossover(self, p1: np.ndarray, p2: np.ndarray) -> np.ndarray:
+        # this is TSP crossover method
+        start = random.randint(0, self._gene_len - 1)
+        end = random.randint(0, self._gene_len-1)
+        if end < start:
+            start, end = end, start
+
+        child_gene = np.empty(self._gene_len, dtype=np.uint16)
+        p1_cross = p1[start:end]
+        p2_cross = [x for x in p2 if x not in p1_cross]
+        child_gene[0:start], child_gene[start:end], child_gene[end:] = \
+            p2_cross[0:start], p1_cross, p2_cross[start:]
+        assert child_gene.sum() == p1.sum()
+        return child_gene
+
+    def mutate(self, rate):
+        for i in range(self._popu_size):
+            rand = random.random()
+            if rand < rate:
+                # mutate
+                start = random.randint(0, self._gene_len - 1)
+                end = random.randint(0, self._gene_len - 1)
+                self._popu[i, start], self._popu[i, end] = self._popu[i, end], self._popu[i, start]
+                continue
 
 
-class GA:
-    def __init__(self, tournament_size, mutation_rate, elitism_size, distance_matrix):
-        self.tournament_size = tournament_size
-        self.mutation_rate = mutation_rate
-        self.elite_size = elitism_size
-        self.distance_matrix = distance_matrix
+class GA_TSP_Manager:
+    def __init__(self, popu_size, city_cnt, dis_mat, tourna_size, mutate_rate):
+        self.tspop = TSPop(popu_size, city_cnt, dis_mat)
+        self.tourna_size = tourna_size
+        self.mutate_rate = mutate_rate
 
-    def step(self, population: Population):
-        population.calculate_fitness(distance_matrix=self.distance_matrix)
+    def one_iter(self):
+        self.tspop.calculate_fitness()
+        best_gene, best_value = self.tspop.get_fittest()
+        self.tspop.select_tourna_crossover(self.tourna_size)
+        self.tspop.mutate(self.mutate_rate)
+        return best_gene, best_value
 
-        new_pop_array = self.select_crossover(population)
-        self.mutate(new_pop_array)
-        if self.elite_size:
-            elite_array = population.get_elite(elite_size=self.elite_size)
-            new_pop_array[0:self.elite_size] = elite_array
+    def run(self, max_iter, max_nochange):
+        history_gene = []
+        history_value = []
+        global_best_value = -1
+        no_change = 0
+        iter_time = max_iter
 
-    def select_crossover(self, population: Population):
-        def crossover(p1, p2, gene_len):
-            start_point = random.randint(0, gene_len-1)
-            end_point = random.randint(0, gene_len-1)
-            if end_point < start_point:
-                start_point, end_point = end_point, start_point
+        self.tspop.init_randomly()
 
-            child_gene = np.empty(gene_len, dtype=np.uint18)
-            p1_cross = p1[start_point:end_point]
-            p2_cross = [x for x in p2 if x not in p1]
+        for it in range(max_iter):
+            best_gene, best_value = self.one_iter()
+            history_gene.append(best_gene)
+            history_value.append(best_value)
 
-            child_gene[0:start_point], child_gene[start_point:end_point], child_gene[end_point:] = \
-                p2_cross[0:start_point], p1_cross, p2_cross[start_point:]
+            if best_value > global_best_value:
+                global_best_value = best_value
+                no_change = 0
+            else:
+                no_change += 1
+            if no_change == max_nochange:
+                iter_time = it + 1
+                break
 
-            assert child_gene.sum() == p1.sum()
-            return child_gene
-
-        size, gene_len = population.get_population_shape()
-        new_pop_array = np.zeros((size, gene_len), dtype=np.uint16)
-        select_range = range(size)
-        for i in range(size):
-            # get parents
-            tours_index = random.sample(select_range, self.tournament_size)
-            parent1 = population.get_best_gene(tours_index)
-            tours_index = random.sample(select_range, self.tournament_size)
-            parent2 = population.get_best_gene(tours_index)
-            child = crossover(parent1, parent2, gene_len)
-            new_pop_array[i] = child
-        return new_pop_array
-
-    def mutate(self, new_pop_array: np.ndarray):
-        size, gene_len = new_pop_array.shape
-        for i in range()
+        return global_best_value, history_gene, history_value , iter_time
 
 
+def get_cities(path):
+    cities = []
+    with open(path) as f:
+        cords = f.readlines()
+        assert len(cords) == city_cnt
+        for cord in cords:
+            cord = cord.split()
+            cities.append((float(cord[0]), float(cord[1])))
+    cities = np.array(cities)
+    return cities
 
 
+def get_distance_matrix(cities: np.ndarray, city_cnt: int) -> np.ndarray:
+    distance_mat = np.empty((city_cnt, city_cnt), dtype=np.float32)
+    for i in range(city_cnt):
+        for j in range(city_cnt):
+            distance_mat[i, j] = np.linalg.norm(((cities[i, 0] - cities[j, 0]), cities[i, 1] - cities[j, 1]))
+    return distance_mat
 
 
+if __name__ == '__main__':
+
+    with open('./input_para') as f:
+        paras = f.readlines()[1:]
+
+    for para_str in paras:
+        para = para_str.split()
+        dataset, popu_size, tourna_size, muta_rate, max_iter, max_nochange = \
+            para[0], int(para[1]), int(para[2]), float(para[3]), int(para[4]), int(para[5])
+
+        # choose dataset
+        if dataset == 'A':
+            path = '../test10.txt'
+            city_cnt = 10
+        elif dataset == 'B':
+            path = '../test30.txt'
+            city_cnt = 30
+        else:
+            raise Exception('invalid input format')
+
+        # get cities and distance matrix
+        cities = get_cities(path)
+        distance_mat = get_distance_matrix(cities, city_cnt)
+
+        # start running
+        manager = GA_TSP_Manager(popu_size, city_cnt, distance_mat, tourna_size, muta_rate)
+        global_best_value, history_gene, history_value, iter_time = manager.run(max_iter, max_nochange)
+
+        # show and save result
+        print('global best value is %f, estimated distance: %f' % (global_best_value, 1/global_best_value))
+        print('iter time is:', iter_time)
+
+        fig, ax = plt.subplots()
+        ax.plot(range(iter_time), history_value)
+        ax.set(xlabel='iter_time', ylabel='fitness', title='testing')
+        ax.grid()
+        fig.savefig("test.png")
+        plt.show()
+
+        best_index = np.argmax(history_value)
+        best_gene = history_gene[best_index]
+        x = cities[best_gene, 0]
+        y = cities[best_gene, 1]
+
+        fig, ax = plt.subplots()
+        ax.plot(x, y, 'go-')
+        ax.grid()
+        ax.axis('equal')
+        plt.show()
 
 
 
