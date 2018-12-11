@@ -69,7 +69,6 @@ class TSPop(Population):
                 dis += self.dis_mat[from_city, to_city]
             from_city, to_city = gene[self._gene_len - 1],  gene[0]
             dis += self.dis_mat[from_city, to_city]
-            assert dis > 0
             return dis
 
         for i in range(self._popu_size):
@@ -87,7 +86,6 @@ class TSPop(Population):
         p2_cross = [x for x in p2 if x not in p1_cross]
         child_gene[0:start], child_gene[start:end], child_gene[end:] = \
             p2_cross[0:start], p1_cross, p2_cross[start:]
-        assert child_gene.sum() == p1.sum()
         return child_gene
 
     def mutate(self, rate):
@@ -140,24 +138,86 @@ class GA_TSP_Manager:
         return global_best_value, history_gene, history_value , iter_time
 
 
-def get_cities(path):
-    cities = []
-    with open(path) as f:
-        cords = f.readlines()
-        assert len(cords) == city_cnt
-        for cord in cords:
-            cord = cord.split()
-            cities.append((float(cord[0]), float(cord[1])))
-    cities = np.array(cities)
-    return cities
+class TSP_ExperimentManager:
+    def __init__(self, para_str, log_path, output_dir):
+        def get_cities(path):
+            cities = []
+            with open(path) as f:
+                cords = f.readlines()
+                for cord in cords:
+                    cord = cord.split()
+                    cities.append((float(cord[0]), float(cord[1])))
+            cities = np.array(cities)
+            return cities
 
+        def get_distance_matrix(cities: np.ndarray, city_cnt: int) -> np.ndarray:
+            distance_mat = np.empty((city_cnt, city_cnt), dtype=np.float32)
+            for i in range(city_cnt):
+                for j in range(city_cnt):
+                    distance_mat[i, j] = np.linalg.norm(((cities[i, 0] - cities[j, 0]), cities[i, 1] - cities[j, 1]))
+            return distance_mat
 
-def get_distance_matrix(cities: np.ndarray, city_cnt: int) -> np.ndarray:
-    distance_mat = np.empty((city_cnt, city_cnt), dtype=np.float32)
-    for i in range(city_cnt):
-        for j in range(city_cnt):
-            distance_mat[i, j] = np.linalg.norm(((cities[i, 0] - cities[j, 0]), cities[i, 1] - cities[j, 1]))
-    return distance_mat
+        self.log_path = log_path
+        self.output_dir = output_dir
+        para = para_str.split()
+        dataset = para[0]
+        self.popu_size = int(para[1])
+        self.tourna_size = int(para[2])
+        self.muta_rate = float(para[3])
+        self.max_iter = int(para[4])
+        self.max_nochange = int(para[5])
+        self.repeat = int(para[6])
+        self.para_str = str(para[:-1])
+
+        if dataset == 'A':
+            path = '../test10.txt'
+            self.city_cnt = 10
+        elif dataset == 'B':
+            path = '../test30.txt'
+            self.city_cnt = 30
+        else:
+            raise Exception('invalid input format')
+
+        self.cities = get_cities(path)
+        self.distance_mat = get_distance_matrix(self.cities, self.city_cnt)
+
+    def _one_try(self):
+        manager = GA_TSP_Manager(self.popu_size, self.city_cnt, self.distance_mat, self.tourna_size, self.muta_rate)
+        return manager.run(self.max_iter, self.max_nochange)
+
+    def run(self):
+        # write a line
+        with open(self.log_path, 'a') as f:
+            print("%s repeat %d times" %
+                  (self.para_str, self.repeat), file=f)
+
+        for i in range(self.repeat):
+            global_best_value, history_gene, history_value, iter_time = self._one_try()
+            best_gene = history_gene[np.argmax(history_value)]
+
+            # write log of this para
+            with open(self.log_path, 'a') as f:
+                f.write("%.4f\t%s\t%d\n" % (1/global_best_value, str(list(best_gene)), iter_time))
+
+            # plot curve
+            fig, ax = plt.subplots()
+            ax.plot(range(iter_time), history_value)
+            ax.set(xlabel='iter_time', ylabel='fitness')
+            ax.grid()
+            fig.savefig(self.output_dir + "/fit_%s(%d).png" % (self.para_str, i))
+
+            # plot route
+            x = self.cities[best_gene, 0]
+            y = self.cities[best_gene, 1]
+            fig, ax = plt.subplots()
+            ax.plot(x, y, 'go-')
+            ax.set(title='shortest route: %.3f' % (1 / global_best_value))
+            ax.grid()
+            ax.axis('equal')
+            fig.savefig(self.output_dir + "/route_%s(%d).png" % (self.para_str, i))
+
+            plt.close('all')
+            print('.', end='')
 
 
 if __name__ == '__main__':
@@ -166,49 +226,10 @@ if __name__ == '__main__':
         paras = f.readlines()[1:]
 
     for para_str in paras:
-        para = para_str.split()
-        dataset, popu_size, tourna_size, muta_rate, max_iter, max_nochange = \
-            para[0], int(para[1]), int(para[2]), float(para[3]), int(para[4]), int(para[5])
-
-        # choose dataset
-        if dataset == 'A':
-            path = '../test10.txt'
-            city_cnt = 10
-        elif dataset == 'B':
-            path = '../test30.txt'
-            city_cnt = 30
-        else:
-            raise Exception('invalid input format')
-
-        # get cities and distance matrix
-        cities = get_cities(path)
-        distance_mat = get_distance_matrix(cities, city_cnt)
-
-        # start running
-        manager = GA_TSP_Manager(popu_size, city_cnt, distance_mat, tourna_size, muta_rate)
-        global_best_value, history_gene, history_value, iter_time = manager.run(max_iter, max_nochange)
-
-        # show and save result
-        print('global best value is %f, estimated distance: %f' % (global_best_value, 1/global_best_value))
-        print('iter time is:', iter_time)
-
-        fig, ax = plt.subplots()
-        ax.plot(range(iter_time), history_value)
-        ax.set(xlabel='iter_time', ylabel='fitness', title='testing')
-        ax.grid()
-        fig.savefig("test.png")
-        plt.show()
-
-        best_index = np.argmax(history_value)
-        best_gene = history_gene[best_index]
-        x = cities[best_gene, 0]
-        y = cities[best_gene, 1]
-
-        fig, ax = plt.subplots()
-        ax.plot(x, y, 'go-')
-        ax.grid()
-        ax.axis('equal')
-        plt.show()
+        if para_str.startswith("#"):
+            continue
+        tsp_exp = TSP_ExperimentManager(para_str, log_path='./log.txt', output_dir='./results')
+        tsp_exp.run()
 
 
 
