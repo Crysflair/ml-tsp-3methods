@@ -4,6 +4,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+def get_cities(path):
+    cities = []
+    with open(path) as f:
+        cords = f.readlines()
+        for cord in cords:
+            cord = cord.split()
+            cities.append((float(cord[0]), float(cord[1])))
+    cities = np.array(cities)
+    return cities
+
+
+def get_distance_matrix(cities: np.ndarray, city_cnt: int) -> np.ndarray:
+    distance_mat = np.empty((city_cnt, city_cnt), dtype=np.float32)
+    for i in range(city_cnt):
+        for j in range(city_cnt):
+            distance_mat[i, j] = np.linalg.norm(((cities[i, 0] - cities[j, 0]), cities[i, 1] - cities[j, 1]))
+    return distance_mat
+
+
 class Population:
     def __init__(self, popu_size, gene_len):
         self._popu_size = popu_size
@@ -140,22 +159,6 @@ class GA_TSP_Manager:
 
 class TSP_ExperimentManager:
     def __init__(self, para_str, log_path, output_dir):
-        def get_cities(path):
-            cities = []
-            with open(path) as f:
-                cords = f.readlines()
-                for cord in cords:
-                    cord = cord.split()
-                    cities.append((float(cord[0]), float(cord[1])))
-            cities = np.array(cities)
-            return cities
-
-        def get_distance_matrix(cities: np.ndarray, city_cnt: int) -> np.ndarray:
-            distance_mat = np.empty((city_cnt, city_cnt), dtype=np.float32)
-            for i in range(city_cnt):
-                for j in range(city_cnt):
-                    distance_mat[i, j] = np.linalg.norm(((cities[i, 0] - cities[j, 0]), cities[i, 1] - cities[j, 1]))
-            return distance_mat
 
         self.log_path = log_path
         self.output_dir = output_dir

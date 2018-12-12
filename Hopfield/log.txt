@@ -1,0 +1,67 @@
+['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'] repeat 5 times
+invalid. last energy: 7.083126
+invalid. last energy: 10.710810
+invalid. last energy: 4.236103
+invalid. last energy: 4.466896
+invalid. last energy: 4.508965
+# 这是传说中的清华参数但是，是论文造假还是什么的我复现不了啊，代码已经那么变态地往小心谨慎写了，不可能有bug啊
+# 下一步试验"组合优化以TSP为例"的参数555
+
+['A', '200', '100', 'piecewise', '0.5', '1000', '5'] repeat 5 times
+invalid. last energy: 1565.719436
+invalid. last energy: 1588.162792
+invalid. last energy: 781.136541
+invalid. last energy: 1289.633704
+invalid. last energy: 1048.382076
+# 也太坑了吧
+
+# 下面为纯小哥参数：u0在源代码里也加了0.5【注意！】
+['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'] repeat 5 times
+invalid. last energy: 1.218162
+invalid. last energy: 1.123762
+invalid. last energy: 1.264437
+invalid. last energy: 1.326644
+invalid. last energy: 1.509747
+# 哇A和D一样竟然比清华论文参数还好一些，果然高手在民间，好的接下来就以这个为基准变
+
+['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'] repeat 5 times
+invalid. last energy: 1.562583
+invalid. last energy: 1.573058
+invalid. last energy: 1.481248
+invalid. last energy: 1.356949
+invalid. last energy: 1.588786
+# 小哥的步长太小了，瞬间局部最优了
+# 个人觉得现在要么加模拟退火（懒得弄啊啊）要么看看能不能让局部最优也是全局最优
+
+['A', '3', '1', 'piecewise', '0.01', '2000', '5'] repeat 5 times
+invalid. last energy: 1.318571
+invalid. last energy: 1.208297
+invalid. last energy: 1.399053
+invalid. last energy: 1.460798
+invalid. last energy: 1.168166
+# 小哥参数二倍版失败！而且又是瞬间收敛。
+# 下一个是清华参数缺D版，就不信它出不来一个可行解
+
+['A', '1.5', '0.01', 'piecewise', '0.5', '1000', '5'] repeat 5 times
+invalid. last energy: 14.851495
+invalid. last energy: 19.130661
+invalid. last energy: 12.401467
+invalid. last energy: 18.196735
+invalid. last energy: 13.941291
+# 不管了！下面是清华参数激进step版和sigmoid版！
+
+['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'] repeat 5 times
+invalid. last energy: 32.023394
+invalid. last energy: 10.847920
+invalid. last energy: 4.967939
+invalid. last energy: 8.024429
+invalid. last energy: 4.378889
+['A', '1.5', '1', 'sigmoid', '0.5', '1000', '5'] repeat 5 times
+invalid. last energy: 10.988150
+invalid. last energy: 8.529679
+invalid. last energy: 4.101621
+invalid. last energy: 2.630508
+invalid. last energy: 14.996683
+
+#['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'] repeat 5 times
+['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'] repeat 5 times

@@ -1,0 +1,9 @@
+dataset A   D   g_fun   step    max_iter    repeat
+#A   1.5 1   piecewise   0.5     1000        5
+#A   200 100  piecewise   0.5    1000        5
+#(小哥参数)A   1.5 1   piecewise   0.01    2000        5
+#A   1.5 1   piecewise   0.01    10000        5
+#A   3 1   piecewise   0.01    2000        5
+#A   1.5 0.01   piecewise   0.5     1000        5
+A   1.5 1   piecewise   0.8     1000        5
+A   1.5 1   sigmoid   0.5     1000        5
