@@ -74,7 +74,7 @@ class Hopfield_TSP:
                     T[ind1, ind2] -= self.A
                 if i==j:
                     T[ind1, ind2] -= self.A
-                if j==i-1 or (i==0 and j==dim-1):
+                if j==i+1 or (i==self.city_cnt-1 and j==0):
                     T[ind1, ind2] -= self.D * self.distance_mat[x, y]
         return T
 
@@ -93,7 +93,7 @@ class Hopfield_TSP:
         self.t += 1
 
     def is_stable(self):
-        if ((0.9<self.V)*(self.V<1) + (0<self.V)*(self.V<0.1)).all():
+        if ((0.8<self.V)*(self.V<1) + (0<self.V)*(self.V<0.2)).all():
             return True
         else:
             return False
@@ -145,11 +145,11 @@ class Hopfield_TSP:
         return self.t, energy_history, self.is_stable()
 
     def analyze_route(self):
-        route = []
-        for i in range(self.city_cnt):
-            for x in range(self.city_cnt):
-                if self.V[self.cord_index((x, i))] > 0.9:
-                    route.append(x)
+        square_mat = self.V.reshape(self.city_cnt, self.city_cnt)
+        route = square_mat.argmax(axis=1)
+        test = [x in route for x in range(self.city_cnt)]
+        isvalid = True if all(test) else False
+
         routelen = 0
         for ci in range(self.city_cnt-1):
             from_city, to_city = route[ci], route[ci+1]
@@ -157,16 +157,17 @@ class Hopfield_TSP:
         from_city, to_city = route[self.city_cnt-1], route[0]
         routelen += self.distance_mat[from_city, to_city]
 
-        return route, routelen
+        return route, routelen, isvalid
 
     def get_neuron_state(self):
         # format: x, i (city, order)
         return self.V.reshape(self.city_cnt, self.city_cnt)
 
+
 if __name__=='__main__':
     paras = read_parameters('./input_para')
-    logfile = './log.txt'
-    output_dir = './results'
+    logfile = './log2.txt'
+    output_dir = './results2'
 
     for para in paras:
 
@@ -199,56 +200,42 @@ if __name__=='__main__':
         for it in range(repeat):
             hop = Hopfield_TSP(A,D,city_cnt,distance_mat,g_fun,0.02,step)
             iter_cnt, energy_history, is_stable = hop.run(max_iter)
+            neuron_state = hop.get_neuron_state()
+            route, routelen, isvalid = hop.analyze_route()
 
-            if is_stable:
-                route, routelen = hop.analyze_route()
-                neuron_state = hop.get_neuron_state()
+            with open(logfile, 'a') as f:
+                if isvalid:
+                    f.write("valid: %.4f\t%.4f\t%s\t%d\t%s\n" %
+                            (routelen, energy_history[-1], str(route), iter_cnt, str(route)))
+                else:
+                    f.write("invalid: %.4f\t%.4f\t%s\t%d\t%s\n" %
+                            (routelen, energy_history[-1], str(route), iter_cnt, str(route)))
 
-                with open(logfile, 'a') as f:
-                    f.write("%.4f\t%.4f\t%s\t%d\n" % (routelen, energy_history[-1], str(route), iter_cnt))
+            # plot energy curve
+            fig, ax = plt.subplots()
+            ax.plot(range(iter_cnt), energy_history)
+            ax.set(xlabel='iter_time', ylabel='Energy')
+            ax.grid()
+            fig.savefig(output_dir + "/energy_%s(%d).png" % (str(para), it))
 
-                # plot energy curve
-                fig, ax = plt.subplots()
-                ax.plot(range(iter_cnt), energy_history)
-                ax.set(xlabel='iter_time', ylabel='Energy')
-                ax.grid()
-                fig.savefig(output_dir + "/energy_%s(%d).png" % (str(para), it))
+            # plot neuron figure
+            fig, ax = plt.subplots()
+            ax.imshow(neuron_state, cmap='viridis')
+            fig.savefig(output_dir + "/grid_%s(%d).png" % (str(para), it))
 
-                # plot neuron figure
-                fig, ax = plt.subplots()
-                ax.imshow(neuron_state, cmap='viridis')
-                fig.savefig(output_dir + "/grid_%s(%d).png" % (str(para), it))
-
-                # plot route
-                x = cities[route, 0]
-                y = cities[route, 1]
-                ax.plot(x, y, 'go-')
-                ax.set(title='shortest route: %.3f' % (routelen))
-                ax.grid()
-                ax.axis('equal')
-                fig.savefig(output_dir + "/route_%s(%d).png" % (str(para), it))
-
-                plt.close('all')
-
+            # plot route
+            x = cities[route, 0]
+            y = cities[route, 1]
+            ax.plot(x, y, 'go-')
+            if isvalid:
+                ax.set(title='valid shortest route: %.3f' % (routelen))
             else:
-                with open(logfile, 'a') as f:
-                    f.write("invalid. last energy: %f\n" % (energy_history[-1]))
-                neuron_state = hop.get_neuron_state()
+                ax.set(title='invalid shortest route: %.3f' % (routelen))
+            ax.grid()
+            ax.axis('equal')
+            fig.savefig(output_dir + "/route_%s(%d).png" % (str(para), it))
 
-                # plot energy curve
-                fig, ax = plt.subplots()
-                ax.plot(range(iter_cnt), energy_history)
-                ax.set(xlabel='iter_time', ylabel='Energy')
-                ax.grid()
-                fig.savefig(output_dir + "/energy_%s(%d).png" % (str(para), it))
-
-                # plot neuron figure
-                fig, ax = plt.subplots()
-                ax.imshow(neuron_state, cmap='viridis')
-                fig.savefig(output_dir + "/grid_%s(%d).png" % (str(para), it))
-
-                plt.close('all')
-
+            plt.close('all')
             print('.', end='')
 
 

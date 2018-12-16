@@ -63,5 +63,24 @@ invalid. last energy: 4.101621
 invalid. last energy: 2.630508
 invalid. last energy: 14.996683
 
-#['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'] repeat 5 times
-['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'] repeat 5 times
+# 发现了T矩阵算错了！
+# 寄希望于95论文参数！
+['A', '3', '1', 'piecewise', '0.05', '10000', '10'] repeat 10 times
+invalid. last energy: 1.176018
+invalid. last energy: 1.187746
+invalid. last energy: 1.178005
+invalid. last energy: 1.097652
+invalid. last energy: 1.127338
+invalid. last energy: 1.149735
+invalid. last energy: 1.176018
+invalid. last energy: 1.091702
+invalid. last energy: 1.162409
+invalid. last energy: 1.089768
+['B', '3', '1', 'piecewise', '0.05', '10000', '5'] repeat 5 times
+invalid. last energy: 2.489024
+invalid. last energy: 2.762318
+invalid. last energy: 2.168903
+invalid. last energy: 2.488881
+invalid. last energy: 2.527170
+# 厉害！下面改一下合法路线的判定，然后结果都输出至result2和log2
+

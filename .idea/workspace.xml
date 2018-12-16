@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="736a9888-7eef-442e-8d04-5ab9b96af47e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GA/GA.py" beforeDir="false" afterPath="$PROJECT_DIR$/GA/GA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hopfield/Hopfield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hopfield/Hopfield.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hopfield/input_para" beforeDir="false" afterPath="$PROJECT_DIR$/Hopfield/input_para" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hopfield/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Hopfield/log.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,15 +14,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hopfield/log.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="84" column="38" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Hopfield/Hopfield.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
+            <state relative-caret-position="332">
+              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hopfield/input_para">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -54,8 +73,8 @@
         <option value="$PROJECT_DIR$/GA/log.txt" />
         <option value="$PROJECT_DIR$/GA/input_para" />
         <option value="$PROJECT_DIR$/GA/GA.py" />
-        <option value="$PROJECT_DIR$/Hopfield/input_para" />
         <option value="$PROJECT_DIR$/Hopfield/log.txt" />
+        <option value="$PROJECT_DIR$/Hopfield/input_para" />
         <option value="$PROJECT_DIR$/Hopfield/Hopfield.py" />
       </list>
     </option>
@@ -74,6 +93,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -84,18 +104,12 @@
             <path>
               <item name="ml-tsp-3methods" type="b2602c69:ProjectViewProjectNode" />
               <item name="ml-tsp-3methods" type="462c0819:PsiDirectoryNode" />
-              <item name="GA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-tsp-3methods" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-tsp-3methods" type="462c0819:PsiDirectoryNode" />
               <item name="Hopfield" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544540174917</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Write Hopfield.&#10;I ran several tests and found it's my fault.&#10;Bugs have to be fixed. About T.">
+      <created>1544618744104</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544618744104</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -218,20 +239,20 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.047556143" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24834874" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2611732" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.23882681" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26396647" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23882681" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.1368715" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.57402235" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32960895" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.36312848" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.20949721" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -299,7 +320,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="rewrite the rubbish I pushed yesterday(though it still looks annoying), testing it with data set A and get the optimized result. Yet B yields a less good result.&#10;I don't know if it is the parameters' fault or the code's. Hope there is no bug...." />
     <MESSAGE value="I think there's no bug.&#10;But it is so hard to get it work well." />
-    <option name="LAST_COMMIT_MESSAGE" value="I think there's no bug.&#10;But it is so hard to get it work well." />
+    <MESSAGE value="Write Hopfield.&#10;I ran several tests and found it's my fault.&#10;Bugs have to be fixed. About T." />
+    <option name="LAST_COMMIT_MESSAGE" value="Write Hopfield.&#10;I ran several tests and found it's my fault.&#10;Bugs have to be fixed. About T." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -310,121 +332,10 @@
           <line>153</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Hopfield/Hopfield.py</url>
-          <line>91</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '200', '100', 'piecewise', '0.5', '1000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '200', '100', 'piecewise', '0.5', '1000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '200', '100', 'piecewise', '0.5', '1000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '0.01', 'piecewise', '0.5', '1000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '0.01', 'piecewise', '0.5', '1000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '0.01', 'piecewise', '0.5', '1000', '5'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '0.01', 'piecewise', '0.5', '1000', '5'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '0.01', 'piecewise', '0.5', '1000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/input_para">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'sigmoid', '0.5', '1000', '5'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](3).png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -436,13 +347,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'sigmoid', '0.5', '1000', '5'](0).png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'](2).png">
       <provider selected="true" editor-type-id="images" />
@@ -459,15 +363,6 @@
     <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'](1).png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'](2).png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -477,12 +372,138 @@
     <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'](4).png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](3).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](7).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](6).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](2).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](4).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](4).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.01', '2000', '5'](3).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '200', '100', 'piecewise', '0.5', '1000', '5'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.8', '1000', '5'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](4).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.5', '1000', '5'](3).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '10000', '5'](2).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](8).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/energy_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](9).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](7).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](6).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](5).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](3).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](2).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](9).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '3', '1', 'piecewise', '0.05', '10000', '10'](8).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GA/log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="10" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['A', '1.5', '1', 'piecewise', '0.01', '2000', '5'](4).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '5'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '5'](2).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '5'](3).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '5'](4).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '5'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="84" column="38" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/input_para">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Hopfield/Hopfield.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
+        <state relative-caret-position="332">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
