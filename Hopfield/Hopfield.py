@@ -212,11 +212,11 @@ if __name__=='__main__':
                             (routelen, energy_history[-1], str(route), iter_cnt, str(route)))
 
             # plot energy curve
-            fig, ax = plt.subplots()
-            ax.plot(range(iter_cnt), energy_history)
-            ax.set(xlabel='iter_time', ylabel='Energy')
-            ax.grid()
-            fig.savefig(output_dir + "/energy_%s(%d).png" % (str(para), it))
+            # fig, ax = plt.subplots()
+            # ax.plot(range(iter_cnt), energy_history)
+            # ax.set(xlabel='iter_time', ylabel='Energy')
+            # ax.grid()
+            # fig.savefig(output_dir + "/energy_%s(%d).png" % (str(para), it))
 
             # plot neuron figure
             fig, ax = plt.subplots()
@@ -224,6 +224,7 @@ if __name__=='__main__':
             fig.savefig(output_dir + "/grid_%s(%d).png" % (str(para), it))
 
             # plot route
+            fig, ax = plt.subplots()
             x = cities[route, 0]
             y = cities[route, 1]
             ax.plot(x, y, 'go-')
