@@ -93,7 +93,7 @@ class Hopfield_TSP:
         self.t += 1
 
     def is_stable(self):
-        if ((0.8<self.V)*(self.V<1) + (0<self.V)*(self.V<0.2)).all():
+        if ((0.7<self.V)*(self.V<1) + (0<self.V)*(self.V<0.3)).all():
             return True
         else:
             return False

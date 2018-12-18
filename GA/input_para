@@ -7,3 +7,18 @@ DATASET POPU_SIZE TOURNA_SIZE MUTA_RATE MAX_ITER MAX_NOCHANGE REPEAT
 #B   100 3   0.2 100 10 10
 #B   500 3   0.2 100 10 10
 #B   500 5   0.2 100 10 10
+# following are for 'results2' folder. elitism is added!
+#data popu tourna muta maxit maxnoc elit repeat
+#B   100     5   0.1    1000     20      1   8 (benchmark) (pop)
+#B   500     5   0.1    1000     20      1   8
+#B   1000    5   0.1    1000     20      1   8
+#B   100     5   0.1    1000     20      0   8 (elite)
+#B   500     5   0.1    1000     20      0   8
+#B   1000    5   0.1    1000     20      0   8
+#B   1000    5   0.05    1000     20      1   8 (muta)
+#B   1000    5   0.15    1000     20      1   8
+#B   1000    5   0.20    1000     20      1   8
+#B   1000    20   0.1    1000     20      1   8 (tourna)
+#B   1000    50   0.1    1000     20      1   8
+#B   1000    100   0.1    1000     20      1   8
+B   1000    3   0.1    1000     20      1   8

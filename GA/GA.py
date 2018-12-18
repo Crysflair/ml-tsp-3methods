@@ -24,9 +24,10 @@ def get_distance_matrix(cities: np.ndarray, city_cnt: int) -> np.ndarray:
 
 
 class Population:
-    def __init__(self, popu_size, gene_len):
+    def __init__(self, popu_size, gene_len, elitism):
         self._popu_size = popu_size
         self._gene_len = gene_len
+        self.elitism = elitism
         self._popu = np.empty((popu_size, gene_len), dtype=np.uint16)
         self._fitness = np.empty(popu_size, dtype=np.float)
 
@@ -59,7 +60,13 @@ class Population:
             child = self._crossover(p1, p2)
             tmp[i] = child
 
+        if self.elitism:
+            elite, _ = self.get_fittest()
+            tmp[0] = elite
+
         self._popu = tmp
+
+
 
     # should be override
     def mutate(self, rate):
@@ -69,10 +76,9 @@ class Population:
         i = np.argmax(self._fitness)
         return self._popu[i], self._fitness[i]
 
-
 class TSPop(Population):
-    def __init__(self, popu_size, city_cnt, dis_mat):
-        super().__init__(popu_size, city_cnt)
+    def __init__(self, popu_size, city_cnt, dis_mat, elitism):
+        super().__init__(popu_size, city_cnt, elitism)
         self.dis_mat = dis_mat
 
     def init_randomly(self):
@@ -108,7 +114,7 @@ class TSPop(Population):
         return child_gene
 
     def mutate(self, rate):
-        for i in range(self._popu_size):
+        for i in range(1 if self.elitism else 0, self._popu_size):
             rand = random.random()
             if rand < rate:
                 # mutate
@@ -119,8 +125,8 @@ class TSPop(Population):
 
 
 class GA_TSP_Manager:
-    def __init__(self, popu_size, city_cnt, dis_mat, tourna_size, mutate_rate):
-        self.tspop = TSPop(popu_size, city_cnt, dis_mat)
+    def __init__(self, popu_size, city_cnt, dis_mat, tourna_size, mutate_rate, elitism):
+        self.tspop = TSPop(popu_size, city_cnt, dis_mat, elitism)
         self.tourna_size = tourna_size
         self.mutate_rate = mutate_rate
 
@@ -163,13 +169,15 @@ class TSP_ExperimentManager:
         self.log_path = log_path
         self.output_dir = output_dir
         para = para_str.split()
+
         dataset = para[0]
         self.popu_size = int(para[1])
         self.tourna_size = int(para[2])
         self.muta_rate = float(para[3])
         self.max_iter = int(para[4])
         self.max_nochange = int(para[5])
-        self.repeat = int(para[6])
+        self.elitism = True if para[6] =='1' else False
+        self.repeat = int(para[7])
         self.para_str = str(para[:-1])
 
         if dataset == 'A':
@@ -185,7 +193,8 @@ class TSP_ExperimentManager:
         self.distance_mat = get_distance_matrix(self.cities, self.city_cnt)
 
     def _one_try(self):
-        manager = GA_TSP_Manager(self.popu_size, self.city_cnt, self.distance_mat, self.tourna_size, self.muta_rate)
+        manager = GA_TSP_Manager(self.popu_size, self.city_cnt, self.distance_mat, self.tourna_size,
+                                 self.muta_rate, self.elitism)
         return manager.run(self.max_iter, self.max_nochange)
 
     def run(self):
@@ -231,7 +240,7 @@ if __name__ == '__main__':
     for para_str in paras:
         if para_str.startswith("#"):
             continue
-        tsp_exp = TSP_ExperimentManager(para_str, log_path='./log.txt', output_dir='./results')
+        tsp_exp = TSP_ExperimentManager(para_str, log_path='./log.txt', output_dir='./results2')
         tsp_exp.run()
 
 
