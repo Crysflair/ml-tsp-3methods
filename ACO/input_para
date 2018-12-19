@@ -33,3 +33,6 @@ ds  antcnt  evap    alpha   beta    maxnotc maxiter repeat
 #B   45      0.0     1       5       10      100     10
 #B   45      0.2     1       5       10      100     10
 #B   45      0.8     1       5       10      100     10
+# beta+
+B   45      0.5     1       1       10      100     10
+B   45      0.5     1       0.5       10      100     10

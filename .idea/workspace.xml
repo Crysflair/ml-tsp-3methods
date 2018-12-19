@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="736a9888-7eef-442e-8d04-5ab9b96af47e" name="Default Changelist" comment="Wow, seems to me the only thing left is paper writing! I can say goodbye to the second part of the big assignment! &#10;...nevertheless, I still have the first part unfinished.&#10;QAQ">
-      <change afterPath="$PROJECT_DIR$/ACO/aco.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACO/input_para" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACO/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hopfield/log2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GA/GA.py" beforeDir="false" afterPath="$PROJECT_DIR$/GA/GA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GA/input_para" beforeDir="false" afterPath="$PROJECT_DIR$/GA/input_para" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GA/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GA/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hopfield/Hopfield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hopfield/Hopfield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hopfield/input_para" beforeDir="false" afterPath="$PROJECT_DIR$/Hopfield/input_para" afterDir="false" />
+    <list default="true" id="736a9888-7eef-442e-8d04-5ab9b96af47e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ACO/input_para" beforeDir="false" afterPath="$PROJECT_DIR$/ACO/input_para" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ACO/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ACO/log.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,33 +14,22 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ACO/input_para">
+        <entry file="file://$PROJECT_DIR$/ACO/log.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ACO/aco.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="184" column="34" selection-start-line="184" selection-start-column="34" selection-end-line="184" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="293">
+              <caret line="227" selection-start-line="227" selection-end-line="227" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ACO/log.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="287" selection-start-line="287" selection-end-line="287" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/ACO/results2/length_['B', '45', '0.5', '1', '2', '10', '100', '10'](5).png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ACO/results2/route_['B', '45', '0.5', '1', '2', '10', '100', '10'](5).png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -66,6 +47,7 @@
       <find>select_range</find>
       <find>para_str</find>
       <find>assert</find>
+      <find>evap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -83,9 +65,9 @@
         <option value="$PROJECT_DIR$/GA/GA.py" />
         <option value="$PROJECT_DIR$/GA/log.txt" />
         <option value="$PROJECT_DIR$/GA/input_para" />
-        <option value="$PROJECT_DIR$/ACO/log.txt" />
-        <option value="$PROJECT_DIR$/ACO/input_para" />
         <option value="$PROJECT_DIR$/ACO/aco.py" />
+        <option value="$PROJECT_DIR$/ACO/input_para" />
+        <option value="$PROJECT_DIR$/ACO/log.txt" />
       </list>
     </option>
   </component>
@@ -114,6 +96,12 @@
               <item name="ml-tsp-3methods" type="b2602c69:ProjectViewProjectNode" />
               <item name="ml-tsp-3methods" type="462c0819:PsiDirectoryNode" />
               <item name="ACO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ml-tsp-3methods" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ml-tsp-3methods" type="462c0819:PsiDirectoryNode" />
+              <item name="ACO" type="462c0819:PsiDirectoryNode" />
+              <item name="results2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -269,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544941517012</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Wow, seems to me the only thing left is paper writing! I can say goodbye to the second part of the big assignment! &#10;...nevertheless, I still have the first part unfinished.&#10;QAQ">
+      <created>1545130154048</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1545130154048</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -283,22 +278,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21136063" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28533685" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.060055867" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.50139666" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36731842" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.49581006" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.13547486" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.13547486" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.57402235" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32960895" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.35614526" />
+      <window_info anchor="bottom" x="527" y="624" width="847" height="117" id="Python Console" order="10" type="FLOATING" visible="true" weight="0.4511173" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -390,51 +384,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GA/results/fit_['B', '500', '10', '0.2', '100', '10'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results/fit_['B', '500', '10', '0.2', '100', '10'](6).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results/fit_['B', '500', '10', '0.2', '100', '10'](7).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results/fit_['B', '500', '10', '0.2', '100', '10'](9).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results/fit_['B', '500', '3', '0.2', '100', '10'](0).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/fit_['B', '100', '5', '0.1', '1000', '20', '1'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/fit_['B', '100', '5', '0.1', '1000', '20', '1'](4).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/fit_['B', '500', '5', '0.1', '1000', '20', '1'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/fit_['B', '500', '5', '0.1', '1000', '20', '1'](6).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/fit_['B', '1000', '5', '0.1', '1000', '20', '1'](5).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/route_['B', '100', '5', '0.1', '1000', '20', '1'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/route_['B', '1000', '5', '0.1', '1000', '20', '1'](3).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/route_['B', '1000', '5', '0.1', '1000', '20', '1'](2).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/route_['B', '1000', '5', '0.1', '1000', '20', '1'](1).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GA/results2/route_['B', '1000', '5', '0.1', '1000', '20', '1'](5).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GA/results2/route_['B', '1000', '5', '0.1', '1000', '20', '1'](6).png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -576,29 +525,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ACO/log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="287" selection-start-line="287" selection-end-line="287" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ACO/input_para">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ACO/aco.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="184" column="34" selection-start-line="184" selection-start-column="34" selection-end-line="184" selection-end-column="34" />
+        <state relative-caret-position="939">
+          <caret line="174" column="22" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ACO/input_para">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/log2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/route_['A', '3', '1.1', 'piecewise', '0.05', '10000', '8'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['A', '3', '1.1', 'piecewise', '0.05', '10000', '8'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](3).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](5).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](7).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](6).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](2).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/route_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](1).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/route_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/grid_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](0).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hopfield/results2/route_['B', '3', '1', 'piecewise', '0.05', '10000', '8'](2).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ACO/log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="227" selection-start-line="227" selection-end-line="227" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ACO/results2/length_['B', '45', '0.5', '1', '2', '10', '100', '10'](5).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ACO/results2/route_['B', '45', '0.5', '1', '2', '10', '100', '10'](5).png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
