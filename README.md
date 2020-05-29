@@ -1,5 +1,4 @@
 # ml-tsp-3methods
 
-Well, this is just a repository for my course project.
-With a time limited and little coding experience, codes showed here are far from perfect and object oriented poorly.
-Anyway, they can work. Hope they can help anyone in need. :)
+BIT Machine Learning 大作业。
+Hopfield网络的效果很差，找遍网上也找不到好的，看来是普遍差呀。
